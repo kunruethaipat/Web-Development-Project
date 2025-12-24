@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumony | Product-Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/mycss.css">
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="/img/logo.png" />
+    <link rel="stylesheet" href="/dist/main.css" />
+    <script src="/dist/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body style="background: black;" class="league-spartan100 text-white">
+    <section class="sticky-top">
+        <nav class="navbar navbar-expand-lg container">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="team">about</a>
+                </ul>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="/promotion">service</a>
+                </ul>
+
+                <a class="navbar-brand zoom" href="/index">
+                    <img src="/img/logo.png" alt="" width="auto" height="20" class="d-inline-block align-text-top">
+                </a>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="product" target="_blank">product</a>
+                </ul>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="/login">login</a>
+                </ul>
+
+            </div>
+        </nav>
+    </section>
+
+    <!-- top text -->
+    <section>
+
+        <div class="back-button">
+            <i class="bi bi-chevron-left"> </i>
+            <a href="/product">BACK</a>
+        </div>
+
+        <div class="advance-section">
+            <h1 class="search-title">ADVANCED <span>SEARCH</span></h1>
+            <div class="search-bar">
+              <input type="text" id="productNameInput" placeholder="TYPE NAME OF PRODUCT">
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 180px;">
+        <!-- CATEGORY -->
+        <div class="input-box">
+            <div class="label">CATEGORY</div>
+            <select id="typeSelect" name="type">
+            <option value="">Select A Category</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Unisex">Unisex</option>
+            </select>
+        </div>
+        
+        <!-- BRAND -->
+        <div class="input-box">
+            <div class="label">BRAND</div>
+            <select id="brandSelect" name="brand">
+            <option value="">Select A Brand</option>
+            <option value="Burberry">BURBERRY</option>
+            <option value="Calvin Klein">CALVIN KLEIN</option>
+            <option value="Chanel">CHANEL</option>
+            <option value="Dior">DIOR</option>
+            <option value="Giorgio Armani">GIORGIO ARMANI</option>
+            <option value="Gucci">GUCCI</option>
+            <option value="Jo Malone">JO MALONE</option>
+            <option value="Tom Ford">TOM FORD</option>
+            <option value="Versace">VERSACE</option>
+            <option value="Yves Saint Laurent">YSL</option>
+            </select>
+        </div>
+        
+        <!-- PRICE -->
+        <div class="input-box">
+            <div class="label">PRICE</div>
+            <select id="priceSelect" name="price">
+            <option value="">Select Price</option>
+            <option value="2000-3000">2,000-3,000 BAHT</option>
+            <option value="3001-4000">3,001-4,000 BAHT</option>
+            <option value="4001-5000">4,001-5,000 BAHT</option>
+            <option value="5001-6000">5,001-6,000 BAHT</option>
+            <option value="6001-7000">6,001-7,000 BAHT</option>
+            </select>
+        </div>
+
+        <!-- FILTER BUTTONS -->
+        <div class="filter-buttons">
+            <button type="reset" class="clear-btn">CLEAR</button>
+            <button type="submit" class="search-btn" id="searchBtn">SEARCH</button>
+        </div>
+
+        <div id="productTable" class="grid" style="margin: 40px 20px;">
+            <!-- Products will show up here -->
+        </div>
+          
+      </section>
+      
+</body>
+
+<footer>
+    <section class="slogan">
+        <div class="slogan-text">
+            <p>A<br><span>FRAGRANCE</span><br>AS UNIQUE<br>AS YOU.</p>
+            <div class="underline"></div>
+            <img style="width: 18%; height: auto;" src="img/logo.png">
+        </div>
+
+        <div class="footer-nav">
+            <div>
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><a href="/index">HOME PAGE</a></li>
+                    <li><a href="/product">PRODUCT</a></li>
+                    <li><a href="/team">ABOUT US</a></li>
+                    <li><a href="">ACCOUNT</a></li>
+                    <li><a href="">SETTING</a></li>
+                    <li><a href="">SERVICE</a></li>
+                    <li><a href="">CART</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>LOGIN</h4>
+                <ul>
+                    <li><a href="/admin_login">ADMIN</a></li>
+                    <li><a href="/login">USER</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</footer>
+
+<script>
+
+    // Fetches all products from the server and returns them as a JSON array.
+    let allProducts = [];
+    async function fetchProducts() {
+        try {
+            const response = await fetch('/getAllProductsUser');
+            const products = await response.json();
+            return products;
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            return [];
+        }
+    }
+
+    // Renders a list of products as image cards inside the HTML element with ID productTable.
+    function renderProductList(products) {
+        const list = document.getElementById('productTable');
+        list.innerHTML = '';
+        products.forEach(element => {
+            const card = document.createElement('div');
+            card.classList.add('card2');
+            card.innerHTML = `
+                <div class="img-box zoom" onclick="window.location.href='/product_detail?Product_ID=${element.Product_ID}'" style="cursor: pointer;">
+                    <img src="data:image/jpeg;base64,${element.Product_image}" alt="${element.Product_name}">
+                </div>
+                <div class="text-each-perfume">
+                    <p class="brand">${element.Product_brand}</p>
+                    <p class="name">${element.Product_name}</p>
+                </div>
+            `;
+
+            list.appendChild(card);
+        });
+    }
+
+    // Fetches all products and displays them by calling the render function.
+    async function init() {
+        allProducts = await fetchProducts();
+        renderProductList(allProducts);
+    }
+
+    // Filters products based on search criteria and updates the displayed product list.
+    document.getElementById('searchBtn').addEventListener('click', async function () {
+        const name = document.getElementById('productNameInput').value.trim().toLowerCase();
+        const type = document.getElementById('typeSelect').value.trim();
+        const brand = document.getElementById('brandSelect').value.trim();
+        const price = document.getElementById('priceSelect').value.trim();
+        const filtered = allProducts.filter(product => {
+            const matchesName = !name || product.Product_name.toLowerCase().includes(name);
+            const matchesType = !type || product.Product_type === type;
+            const matchesBrand = !brand || product.Product_brand === brand;
+            const matchesPrice = !price || product.priceRange === price;
+
+            return matchesName && matchesType && matchesBrand && matchesPrice;
+        });
+        renderProductList(filtered);
+    });
+
+    // Clears search fields, resets the product list, and fetches products again with empty filters.
+    document.querySelector('.clear-btn').addEventListener('click', function () {
+        document.getElementById('productNameInput').value = '';
+        document.getElementById('typeSelect').value = '';
+        document.getElementById('brandSelect').value = '';
+        document.getElementById('priceSelect').value = '';
+        renderProductList(allProducts); // Reset to show all products
+        const params = new URLSearchParams();
+            if (name) params.append('name', name);
+            if (artist) params.append('artist', artist);
+            if (label) params.append('label', label);
+
+            fetchProducts(params.toString());
+    });
+    init();
+
+</script>
+
+</html>

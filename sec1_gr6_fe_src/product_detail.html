@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumony | Product-Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/mycss.css">
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="/img/logo.png" />
+    <link rel="stylesheet" href="/dist/main.css" />
+    <script src="/dist/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+
+<body class="bgcolor2 league-spartan100 text-white ">
+    <!-- nav -->
+    <section class="sticky-top">
+        <nav class="navbar navbar-expand-lg container">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="team">about</a>
+                </ul>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="/promotion">service</a>
+                </ul>
+
+                <a class="navbar-brand zoom" href="/index">
+                    <img src="/img/logo.png" alt="" width="auto" height="20" class="d-inline-block align-text-top">
+                </a>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="product" target="_blank">product</a>
+                  </ul>
+
+                <ul class="nav-item mt-3">
+                    <a class="nav-link zoom" href="/login">login</a>
+                </ul>
+
+            </div>
+        </nav>
+    </section>
+
+    <!-- product detail -->
+    <section >
+        <div class="Product_text">
+            <!-- SPACE -->
+        </div>
+        <div class="Product_pretext">
+            <!-- SPACE -->
+        </div>
+        <div class="product-box">
+            <!-- SPACE -->
+        </div>
+        <div class="main_price">
+            <!-- SPACE -->
+        </div>
+    </section>
+
+    <section>
+        <div class="quan">
+            <select name="quantity" id="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="2">3</option>
+              <option value="2">4</option>
+              <option value="2">5</option>
+            </select> 
+            <button class="add_cart">
+                Add to cart
+                <!-- SPACE -->
+            </button>
+        </div>
+
+        <button class="buy_now">Buy now
+        <span class="buy_now_split"><img src="/img/cash-stack.png" alt=""></span>
+        </button>
+
+        <p class="product_id">
+            <!-- SPACE -->
+        </p>
+    </section>
+
+    <!-- description tab -->
+    <section>
+        <div class="d_product">
+            <div class="p-2">Description</div>
+            <div class="p-2">Contact and Services</div>
+            <div class="p-2">Delivery and returns</div>
+        </div>
+        <hr style="width: 470px; height: 3px; border: 1px solid #ccc; margin-left: 845px;">
+        <div class="discription">
+            <div class="discription_detail">
+                An explosive fragrance clashing powerful iris with spicy black pepper and deep <br>
+                vanilla wood. Givenchy celebrates the free spirit and charismatic charm of the 
+            </div>
+        </div>
+        <div class="see_more_S">
+            <u class="see_more">See more</u>
+        </div>
+    </section>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+
+<script>
+    // Fetches product details by ID from the server and displays them on the product detail page.
+    async function loadProductDetail() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('Product_ID');
+        console.log("Product_ID:", productId); // Debug
+        if (!productId) {
+            console.error("No Product_ID found");
+            return;
+        }
+        try {
+            const response = await axios.get('http://localhost:8083/api/getProductDetail', {
+                params: { Product_ID: productId }
+            });
+            const product = response.data;
+            console.log("Product Data:", product); // Debug API response
+            // Inject data into HTML
+            document.querySelector('.Product_text').innerHTML = `<h1>${product.Product_name}</h1>`;
+            document.querySelector('.Product_pretext').innerHTML = `<p>${product.Product_brand}</p>`;
+            document.querySelector('.product-box').innerHTML = `
+            <img src="data:image/jpeg;base64,${product.Product_image}" alt="${product.Product_name}">
+            `;
+            document.querySelector('.main_price').innerHTML = `<p>Price: ${product.Product_price} Baht</p>`;
+            document.querySelector('.discription_detail').innerHTML = product.Product_description;
+            document.querySelector('.product_id').innerHTML = `Product ID: ${product.Product_ID}`;
+        } catch (error) {
+            console.error("Error loading product detail:", error);
+        }
+    }
+    loadProductDetail();
+</script>
+</html>

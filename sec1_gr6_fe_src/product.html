@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumony | Product-Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/mycss.css">
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="/img/logo.png" />
+    <link rel="stylesheet" href="/dist/main.css" />
+    <script src="/dist/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <!-- เพิ่มฟ้อน -->
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <!-- เพิ่มicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body style="background: black;" class="league-spartan100 text-white">
+  <!-- nav -->
+  <section class="sticky-top">
+      <nav class="navbar navbar-expand-lg container">
+          <div class="container-fluid">
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <ul class="nav-item mt-3">
+                  <a class="nav-link zoom" href="team">about </a>
+              </ul>
+
+              <ul class="nav-item mt-3">
+                  <a class="nav-link zoom" href="/promotion">service</a>
+              </ul>
+
+              <a class="navbar-brand zoom" href="/">
+                  <img src="/img/logo.png" alt="" width="auto" height="20" class="d-inline-block align-text-top">
+              </a>
+
+              <ul class="nav-item mt-3">
+                <a class="nav-link zoom" href="product" target="_blank">product</a>
+              </ul>
+
+              <ul class="nav-item mt-3">
+                  <a class="nav-link zoom" href="/login">login</a>
+              </ul>
+
+          </div>
+      </nav>
+  </section>
+
+  <section class="text_on_pic">
+    <img src="img/output-3 1.png">
+    <div>
+      <p class="perfume">PERFUME COLLECTION</p>
+      <h1 style="font-size: 2rem; font-weight: 600; line-height: 1; letter-spacing: 1.5px;">
+          DEFINE <span style="color: #06ff87;">YOURSELF</span><br>
+          WITH EVERY SPRAY
+      </h1>
+      <a href="#" class="btn btn-light distance-top"
+          style="padding: 4px 30px 4px 30px;">Discover Now</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="search-section">
+      <h1 class="search-title">SEARCH</h1>
+      <div class="search-bar">
+        <input type="text" id="productSearchInput" placeholder="TYPE NAME OF PRODUCT">
+        <i class="bi bi-search" id="searchIcon" style="cursor: pointer;"></i>
+      </div>
+      <div class="advance">
+        <a href="/advance-search" class="advance-search">ADVANCE SEARCH</a>
+        <i class="bi bi-chevron-down"> </i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creates a product list section with a table where products will be dynamically displayed. -->
+  <section class="below-advance">
+    <div id="productListPage" class="py-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="margin: 0;">PRODUCT LIST</h2>
+      </div>
+      <table class="table table-dark table-hover">
+        <tbody id="productTable" class="grid"></tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+
+<footer>
+    <section class="slogan">
+        <div class="slogan-text">
+            <p>A<br><span>FRAGRANCE</span><br>AS UNIQUE<br>AS YOU.</p>
+            <div class="underline"></div>
+            <img style="width: 18%; height: auto;" src="img/logo.png">
+        </div>
+
+        <div class="footer-nav">
+            <div>
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><a href="/index">HOME PAGE</a></li>
+                    <li><a href="/product">PRODUCT</a></li>
+                    <li><a href="/team">ABOUT US</a></li>
+                    <li><a href="">ACCOUNT</a></li>
+                    <li><a href="">SETTING</a></li>
+                    <li><a href="">SERVICE</a></li>
+                    <li><a href="">CART</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>LOGIN</h4>
+                <ul>
+                    <li><a href="/admin_login">ADMIN</a></li>
+                    <li><a href="/login">USER</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<script>
+  let allProducts = []; // global
+
+  async function fetchAndRenderProducts() {
+    try {
+      const response = await fetch('/getAllProductsUser');
+      allProducts = await response.json();
+      renderProductList(allProducts);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  }
+
+  // Trigger search on icon click
+  document.getElementById('searchIcon').addEventListener('click', function () {
+    const keyword = document.getElementById('productSearchInput').value.trim().toLowerCase();
+    const filtered = allProducts.filter(product =>
+      product.Product_name.toLowerCase().includes(keyword)
+    );
+    renderProductList(filtered);
+  });
+
+  // Also trigger search when pressing "Enter"
+  document.getElementById('productSearchInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      document.getElementById('searchIcon').click();
+    }
+  });
+
+  function renderProductList(products) {
+    const list = document.getElementById('productTable');
+    list.innerHTML = '';
+    products.forEach(element => {
+      const card = document.createElement('div');
+      card.classList.add('card2');
+      card.innerHTML = `
+        <div class="zoom">
+          <div class="img-box" onclick="window.location.href='/product_detail?Product_ID=${element.Product_ID}'">
+              <img src="data:image/jpeg;base64,${element.Product_image}" alt="${element.Product_name}">
+          </div>
+          <div class="text-each-perfume">
+              <p class="brand">${element.Product_brand}</p>
+              <p class="name">${element.Product_name}</p>
+          </div>  
+        </div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  fetchAndRenderProducts();
+</script>
+
+</html>

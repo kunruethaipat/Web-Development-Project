@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumony | User Log-In</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="/css/mycss.css">
+  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  <link rel="shortcut icon" type="image/jpg" href="/img/logo.png"/>
+  <link rel="stylesheet" href="/dist/main.css" />
+  <script src="/dist/main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body class="bgcolor league-spartan100 text-white">
+  <div class="sticky-top">
+    <nav class="navbar navbar-expand-lg container">
+      <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <ul class="nav-item mt-3">
+          <a class="nav-link-user zoom" href="team">about</a>
+        </ul>
+
+        <ul class="nav-item mt-3">
+          <a class="nav-link-user zoom" href="/promotion">service</a>
+        </ul>
+
+        <a class="navbar-brand zoom" href="/index">
+          <img src="/img/LUMONY LOGO B.png" alt="" width="auto" height="20" class="d-inline-block align-text-top">
+        </a>
+
+        <ul class="nav-item mt-3">
+          <a class="nav-link zoom" href="product" target="_blank">product</a>
+        </ul>
+
+        <ul class="nav-item mt-3">
+          <a class="nav-link-user zoom" href="/login">login</a>
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+
+  <!-- background -->
+  <section class="user_log">
+      <img src="img/Rectangle 53.png" alt="admin_background">
+  </section>
+
+  <!-- login form -->
+  <div class="user-login-container">
+    <form class="user-login-box">
+      <div class="userlogin">
+        <img src="img/User Login.png" alt="">
+      </div>
+
+      <button class="google-btn">
+        <img src="img/google 1.png" alt="Google Icon" />
+        &nbsp Login with Google
+      </button>
+
+      <div class="divider">
+      <img src="img/Group 88.png" alt="">
+      </div>
+    
+      <input type="text" id="Email" placeholder="Email" />
+
+      <div class="user-password-wrapper">
+        <input type="password" id="password" placeholder="Password" />
+        <span class="eye"><img src="img/eye 1.png" alt=""></span>
+      </div>
+    
+        <div class="g-recaptcha" data-sitekey="6LeEiicrAAAAAIWTSs-ydcJ0-hhwh0Kjj5GjKrxt"></div>
+        <br/>
+      
+      <button type="submit" class="user-login-btn">Login</button>
+      <b class="create_account_yet">
+        <span class="black">Not have an account ?</span> <a class="purple-text" href="/create_account">create account</a>
+      </b>
+    </form>
+  </div>
+</body>
+
+
+
+
+</html>
+

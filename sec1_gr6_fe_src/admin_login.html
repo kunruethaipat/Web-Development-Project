@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumony | Admin</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/mycss.css">
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="/img/logo.png"/>
+    <link rel="stylesheet" href="/dist/main.css" />
+    <script src="/dist/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+
+  <body class="bgcolor league-spartan100 text-white">
+      <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg container">
+          <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav-item mt-3">
+              <a class="nav-link zoom" href="team">about</a>
+            </ul>
+
+            <ul class="nav-item mt-3">
+              <a class="nav-link zoom" href="/promotion">service</a>
+            </ul>
+
+            <a class="navbar-brand zoom" href="/">
+              <img src="/img/logo.png" alt="" width="auto" height="20" class="d-inline-block align-text-top">
+            </a>
+
+            <ul class="nav-item mt-3">
+              <a class="nav-link zoom" href="product" target="_blank">product</a>
+            </ul>
+
+            <ul class="nav-item mt-3">
+              <a class="nav-link zoom" href="/login">login</a>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+
+    <!-- login form -->
+    <div id="loginPage">
+      <section class="admin_log">
+        <img src="img/6cdfdb3ea1849ca44fd216385d90fac5 1.png" alt="admin_background">
+      </section>
+
+      <div class="login-container">
+        <form class="login-box" action="/admin_login_auth" method="POST" onsubmit="return validateCaptcha()">
+          <h2>Admin Log-In</h2>
+
+          <label for="username">Username</label>
+          <input type="text" name="username" placeholder="Username">
+
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input name="password" type="password" placeholder="Password">
+            <span class="eye"><img src="img/eye 1.png" alt=""></span>
+          </div>
+    
+          <div class="g-recaptcha" data-sitekey="6LeEiicrAAAAAIWTSs-ydcJ0-hhwh0Kjj5GjKrxt"></div>
+          <button type="submit" class="login-btn">Log In</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function validateCaptcha() {
+        const response = grecaptcha.getResponse();
+        if (response.length === 0) {
+          alert('Please verify you are not a robot.');
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+    </script>
+    
+  </body>
+</html>
+
